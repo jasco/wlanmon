@@ -17,3 +17,9 @@ Run as a cron job in crontab, scheduling a check every 15 minutes.
 
     sudo crontab -e
     */15 * * * * /bin/bash /usr/local/bin/wlanmon
+
+## Acknowledgement
+
+This script is based on [WiFi Checker Script](http://sirlagz.net/2013/01/10/script-wifi-checker-script/)
+
+
