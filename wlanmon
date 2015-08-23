@@ -1,0 +1,14 @@
+#!/bin/bash
+
+INTERFACE=wlan0
+
+wlan=`/sbin/ifconfig $INTERFACE | grep 'inet addr' | wc -l`
+
+if [ $wlan -eq 0 ]; then
+    logger "$0: Interface down. Bringing interface up again"
+    /sbin/ifdown $INTERFACE && /sbin/ifup $INTERFACE
+    [ "$?" != "0" ] && logger "$0: Restart failed" || logger "$0: Restart OK"
+else
+    logger "$0: Interface up"
+fi
+
